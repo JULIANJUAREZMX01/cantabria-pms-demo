@@ -14,3 +14,7 @@ Julián delega mantenimiento: "optimiza sin necesidad de autorización, pequeño
 ✅ El sistema mejora solo, con bitácora auditable y presupuesto controlado (1 turno/semana).
 ✅ Cualquier agente futuro puede leer los ADRs y continuar la obra sin contexto oral.
 ⚠️ El turno cuesta créditos por corrida; se desactiva si el dueño lo pide.
+
+---
+
+**Actualización 2026-10-24:** el control operativo del calendario vive en [docs/CALENDARIO.md](../CALENDARIO.md). Cada turno semanal actualiza ese archivo (fila de registro + próximos turnos + pendientes) y continúa el análisis del [ROADMAP de repositorios](ROADMAP-repositorios-reutilizables.md).
