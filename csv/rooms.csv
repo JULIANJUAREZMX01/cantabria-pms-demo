@@ -1,0 +1,10 @@
+room_id,property_name,room_type,guest,status,priority,notes,id
+105,Hotel Cantabria Tulancingo,Habitación,Laura Vega,lista,Media,Check-in registrado,6adc588321ae79515c09295a
+204,Hotel Cantabria Tulancingo,Doble Queen,Disponible,proceso,Media,Probe update fix,6adc54a3683d2580b20d344c
+203,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Roberto Ruiz,proceso,Media,Reposición de toallas y kit de baño.,6adc54a3683d2580b20d344b
+202,Hotel Cantabria Tulancingo,Suite Cantabria,Disponible,lista,Baja,Supervisada. Aroma lavanda colocado. Verificada.,6adc54a3683d2580b20d344a
+201,Hotel Cantabria Tulancingo,Doble Queen,Ana Torres,sucia,Alta,Llegada programada 3:00 PM (prioritaria).,6adc54a3683d2580b20d3449
+104,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Carlos Gómez,lista,Baja,Huésped en habitación. No molestar.,6adc54a3683d2580b20d3448
+103,Hotel Cantabria Tulancingo,Suite Cantabria,Disponible,lista,Baja,Inspeccionada. Kit Eco de bienvenida listo.,6adc54a3683d2580b20d3447
+102,Hotel Cantabria Tulancingo,Doble Queen,María Rodríguez,proceso,Media,En atención por Sra. Carmen. Limpieza ecológica.,6adc54a3683d2580b20d3446
+101,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Juan Pérez,sucia,Alta,Check-out reciente. Cambio completo de sábanas.,6adc54a3683d2580b20d3445
