@@ -1,4 +1,5 @@
 room_id,property_name,room_type,guest,status,priority,notes,id
+301,Hotel Cantabria Tulancingo,,,sucia,Media,Importado desde Excel por Python (prueba),6adc59eb99e240640139e8b4
 105,Hotel Cantabria Tulancingo,Habitación,Laura Vega,lista,Media,Check-in registrado,6adc588321ae79515c09295a
 204,Hotel Cantabria Tulancingo,Doble Queen,Disponible,proceso,Media,Probe update fix,6adc54a3683d2580b20d344c
 203,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Roberto Ruiz,proceso,Media,Reposición de toallas y kit de baño.,6adc54a3683d2580b20d344b
