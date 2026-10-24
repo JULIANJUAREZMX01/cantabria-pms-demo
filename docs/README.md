@@ -20,6 +20,7 @@ Sede piloto: **Hotel Cantabria Tulancingo** (laboratorio "Proyecto Beta").
 | [003](adr/ADR-003-landing-i18n-huesped.md) | Una sola landing con i18n, español por defecto | Aceptada |
 | [004](adr/ADR-004-funnel-reserva-whatsapp.md) | Funnel de reserva con ticket y confirmación WhatsApp | Aceptada |
 | [005](adr/ADR-005-optimizacion-continua-calendario.md) | Optimización continua autónoma + ADRs | Aceptada |
+| [006](adr/ADR-006-concierge-ia-landing.md) | Concierge IA en la landing (SkillRouter de KynicOS) | Aceptada |
 | [ROADMAP](adr/ROADMAP-repositorios-reutilizables.md) | Repositorios del autor reutilizables | Análisis |
 
 Convención ADR: **Contexto / Decisión / Consecuencias**. Toda optimización (humana o de agente) agrega o actualiza un ADR.
