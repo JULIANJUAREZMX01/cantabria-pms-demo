@@ -1,5 +1,4 @@
 guest_name,property_name,room,check_in,check_out,rate,extras_total,payment_status,status,notes,id
 Laura Vega,Hotel Cantabria Tulancingo,105,2026-10-24,2026-10-26,600,0,paid,Activa,Prueba del flujo completo KynicOS,6adc58831813760f040e67ce
-TEST_PROBE,,999,,,,,,,,6adc546f33ff8d626d21950c
 Huésped Demo,Hotel Cantabria Tulancingo,5,2026-10-24,2026-10-26,480,,charged_to_room,checked_in,Registro de ejemplo para pruebas del concierge.,6adc4fc4d3d03a0ef90370ce
 Julián Juárez,Hotel Cantabria Tulancingo,12,2026-10-23,2026-10-25,450,85,paid,checked_out,Estancia real que originó el proyecto. Huesped detectó la oportunidad de negocio.,6adc4fc4d3d03a0ef90370cd
