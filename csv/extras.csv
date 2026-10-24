@@ -1,5 +1,4 @@
 property_name,room,guest_name,item,qty,unit_price,total,eco,status,notes,id
-Hotel Cantabria Tulancingo,101,E2E Cantabria (ignorar),Agua Alcalina Cantabria 600ml,2,25,50,TRUE,Pendiente,Pedido vía concierge web KynicOS (landing),6adc6fbc97914c7de8460c80
 Hotel Cantabria Tulancingo,201,Ana Torres,Kit Ecológico de Aseo (Bambú),1,70,70,TRUE,Entregado,Solicitado vía QR de la habitación,6adc54a3683d2580b20d344f
 Hotel Cantabria Tulancingo,102,María Rodríguez,Café Orgánico de la Región,1,45,45,TRUE,Entregado,Servicio a habitación,6adc54a3683d2580b20d344e
 Hotel Cantabria Tulancingo,101,Juan Pérez,Agua Alcalina Cantabria 600ml,2,25,50,TRUE,Entregado,2 botellas al check-in,6adc54a3683d2580b20d344d
