@@ -1,7 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import { guest } from '@/i18n/guest.ts';
-import { HOTEL, LANGS, EXTRAS_CATALOG, type Lang } from '@/lib/config.ts';
+import { HOTEL, LANGS, EXTRAS_CATALOG, REVIEWS, type Lang } from '@/lib/config.ts';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = guest[lang];
@@ -24,13 +24,48 @@ const chips = [
   { intent: 'amenidades', label: '🧻' },
   { intent: 'mantenimiento', label: '🔧' },
 ] as const;
+const img = (n: string) => `${base}brand/${n}.webp`;
+const pillars = [[t.pil1, t.pil1d, '🛡️'], [t.pil2, t.pil2d, '🔒'], [t.pil3, t.pil3d, '🤝']] as const;
+const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(HOTEL.mapQuery)}&output=embed`;
+const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(HOTEL.mapQuery)}`;
+const gallery = [
+  { n: 'cartel-institucional', alt: 'Hotel Cantabria Tulancingo: es mi casa, es tu casa' },
+  { n: 'medallon-talavera', alt: 'Medallón de talavera: del turista curioso al humilde pulsero' },
+  { n: 'cartel-dato-curioso', alt: 'Dato curioso de Tulancingo: café de olla y concha' },
+  { n: 'cartel-silencio', alt: 'Duerme en silencio en Hotel Cantabria' },
+  { n: 'cartel-promo-netflix', alt: 'Promoción de $300 MXN por habitación por toda la noche' },
+] as const;
+const origin = (Astro.site?.toString() ?? '').replace(/\/$/, '');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Hotel',
+  name: 'Hotel Cantabria',
+  slogan: t.brandTag,
+  description: t.seoDesc,
+  foundingDate: String(HOTEL.est),
+  image: `${origin}${base}brand/sello-talavera.webp`,
+  telephone: HOTEL.phoneDisplay,
+  priceRange: '$300-$650 MXN',
+  address: { '@type': 'PostalAddress', streetAddress: 'Zaragoza Ote. 104, Col. Centro', addressLocality: 'Tulancingo de Bravo', addressRegion: 'Hidalgo', postalCode: '43600', addressCountry: 'MX' },
+  amenityFeature: ['WiFi', 'Agua caliente', 'Atención 24 horas', 'Baño privado'].map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
+  availableLanguage: ['es', 'en', 'zh', 'de', 'fr'],
+  hasMap: mapLink,
+  sameAs: [`https://wa.me/${HOTEL.whatsapp}`],
+};
 ---
-<Base title={`${HOTEL.brand} · ${HOTEL.city}`} lang={lang} description={t.heroSub}>
+<Base title={t.seoTitle} lang={lang} description={t.seoDesc} image={img('sello-talavera')} jsonLd={jsonLd}>
   <header class="hero">
     <div class="wrap">
+      <img class="hero-sign" src={img('rotulo-hero')} alt="Hotel Cantabria · Tulancingo, Hidalgo" width="1200" height="655" fetchpriority="high" />
+      <p class="tagline">“{t.brandTag}” · EST. {HOTEL.est}</p>
       <h1>{t.heroTitle}</h1>
-      <p>{t.heroSub}</p>
+      <p class="lead">{t.heroSub}</p>
       <p class="muted">{t.heroNote}</p>
+      <p class="promo-pill">{t.heroPromo}</p>
+      <div class="cta-row">
+        <a class="btn" href="#reservar">{t.heroCta}</a>
+        <a class="btn ghost" href="#ubicacion">{t.heroCta2}</a>
+      </div>
       <nav class="langs" aria-label={t.langTitle}>
         {LANGS.map((l) => (
           <a href={langHref(l.id)} hreflang={l.id} aria-current={l.id === lang ? 'true' : undefined}>{l.flag} {l.name}</a>
@@ -40,6 +75,31 @@ const chips = [
   </header>
 
   <main class="wrap">
+    <section class="block story">
+      <img class="seal" src={img('sello-talavera')} alt="Sello de Hotel Cantabria con la torre del reloj de Tulancingo" width="260" height="260" loading="lazy" />
+      <div>
+        <h2>{t.storyT}</h2>
+        <p>{t.storyP1}</p>
+        <p>{t.storyP2}</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>{t.pillarsT}</h2>
+      <div class="grid cols-3">
+        {pillars.map(([title, text, icon]) => (<div class="card pillar"><span class="ico" aria-hidden="true">{icon}</span><h3>{title}</h3><p>{text}</p></div>))}
+      </div>
+    </section>
+
+    <section class="block promo-band">
+      <img src={img('monograma-promo')} alt="Monograma C de Hotel Cantabria con la torre del reloj" width="220" height="220" loading="lazy" />
+      <div>
+        <h2>{t.promoT}</h2>
+        <p class="big">{t.promoP}</p>
+        <a class="btn" href="#reservar">{t.heroCta}</a>
+      </div>
+    </section>
+
     <section class="block">
       <h2>{t.forYou}</h2>
       <div class="grid cols-3">
@@ -61,7 +121,7 @@ const chips = [
       <div class="row tight">{amenities.map((a) => <span class="pill">{a}</span>)}</div>
     </section>
 
-    <section class="block">
+    <section class="block" id="reservar">
       <h2>{t.bookTitle}</h2>
       <p class="muted">{t.bookSub}</p>
       <div class="card" id="book-card">
@@ -86,6 +146,45 @@ const chips = [
     </section>
 
     <section class="block">
+      <h2>{t.galT}</h2>
+      <div class="gallery">
+        {gallery.map((g) => (<figure><img src={img(g.n)} alt={g.alt} loading="lazy" width="1000" height="700" /></figure>))}
+      </div>
+      <div class="grid cols-2 stories">
+        <div class="card"><h3>{t.curT}</h3><p>{t.curP}</p></div>
+        <div class="card"><h3>{t.silT}</h3><p>{t.silP}</p></div>
+      </div>
+    </section>
+
+    <section class="block" id="resenas">
+      <h2>{t.revT}</h2>
+      <div class="grid cols-2">
+        {REVIEWS.map((r) => (
+          <blockquote class="card review">
+            <p class="stars" aria-label={`${r.stars} / 5`}>{'★'.repeat(r.stars)}</p>
+            <p>“{r.text}”</p>
+            <footer>— {r.author} · <a href={r.href} target="_blank" rel="noopener noreferrer">{t.revSrc}</a></footer>
+          </blockquote>
+        ))}
+      </div>
+      <p class="muted">{t.revNote}</p>
+    </section>
+
+    <section class="block" id="ubicacion">
+      <h2>{t.mapT}</h2>
+      <div class="map-wrap">
+        <iframe title={t.mapT} src={mapEmbed} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <p class="addr">📍 {t.mapAddr}</p>
+      <p>{t.mapHow}</p>
+      <div class="cta-row">
+        <a class="btn" href={mapLink} target="_blank" rel="noopener noreferrer">{t.mapBtn}</a>
+        <a class="btn ghost" href={`https://wa.me/${HOTEL.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp {HOTEL.phoneDisplay}</a>
+      </div>
+      <p class="muted">{t.mapNote}</p>
+    </section>
+
+    <section class="block">
       <h2>KynicOS · Concierge</h2>
       <p class="muted">{t.concierge}</p>
       <div class="card chat">
@@ -102,9 +201,15 @@ const chips = [
     </section>
   </main>
 
-  <footer class="wrap muted">
-    <p>{t.madeIn} · {HOTEL.address} · {HOTEL.phoneDisplay}</p>
-    <p><a href={`${base}equipo/`}>{t.staffBtn}</a></p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <img src={img('rotulo-sobrio')} alt="Hotel Cantabria, Tulancingo, Hidalgo" width="160" height="160" loading="lazy" class="foot-sign" />
+      <p><strong>{HOTEL.brand}</strong> · EST. {HOTEL.est} · “{t.brandTag}”</p>
+      <p>{HOTEL.address}, Tulancingo, Hidalgo</p>
+      <p><a href={`https://wa.me/${HOTEL.whatsapp}`} rel="noopener noreferrer">WhatsApp {HOTEL.phoneDisplay}</a></p>
+      <p class="muted">{t.madeIn}</p>
+      <p class="staff-link"><a href={`${base}equipo/`} rel="nofollow">{t.staffLink}</a></p>
+    </div>
   </footer>
 
   <script type="application/json" id="landing-data" set:html={JSON.stringify(clientData)} />

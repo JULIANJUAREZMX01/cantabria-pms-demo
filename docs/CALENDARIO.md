@@ -32,6 +32,15 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Demo vivo en Pages intacto (landing React de main sigue sirviéndose; Pages solo despliega desde main).
 - Pendientes: deploy real en Netlify (Julián), rotación de credenciales al cutover, decidir dónde renderizar HOTEL.est en el landing Astro, decisión dueño sobre estancias que cruzan 2027-01-01 (hoy: mezcla noche por noche con promedio redondeado).
 
+## 2026-10-25 · Landing formal v7 (marca + SEO + mapa + reseñas)
+
+- 9 piezas de marca integradas en WebP (ADR-013); hero con rótulo, sello de talavera, monograma, galería de 5 carteles y pie con rótulo sobrio.
+- Textos nuevos en 5 idiomas (historia, pilares, promo, dato curioso, silencio, cómo llegar). SEO completo: title/description por idioma, canonical, hreflang, Open Graph, JSON-LD Hotel, un h1. `/equipo/` en noindex.
+- Mapa por dirección oficial + botón Google Maps + WhatsApp. Reseñas: 2 reales de 5 estrellas con enlace.
+- Botón superior de Personal eliminado; queda solo el enlace discreto al pie.
+- Verificación: 42/42 pruebas · astro check 0 errores · build OK · auditoría de las 5 páginas (imágenes, alt, h1, mapa, enlace de equipo): todo OK.
+- **Pendientes de Julián:** (1) reclamar/unificar la ficha de Google Business: hoy hay 2 fichas mal ubicadas ("Cantabria" tipo Love hotel en Echavarri 214 y "Hostales Cantabria" en Rodríguez y Coss 301C); (2) confirmar que las reseñas de "Hostales Cantabria" son de su negocio; (3) mover el "$300" del title SEO a `HOTEL.promo` para que caduque con la promo.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
