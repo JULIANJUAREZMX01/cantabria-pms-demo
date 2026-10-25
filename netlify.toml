@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "24"
+  PUBLIC_GATEWAY_MODE = "proxy"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Variables de servidor (Site settings → Environment variables), NUNCA con prefijo PUBLIC_:
+#   SESSION_SECRET (≥32 caracteres aleatorios), STAFF_PIN, OWNER_PIN,
+#   BASE44_WRITE_API, BASE44_WRITE_TOKEN, GITHUB_REPO, GITHUB_READ_TOKEN (solo si el repo es privado)
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # 'unsafe-inline' porque Astro inserta scripts/estilos pequeños en línea; sin CDN externos.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+[[headers]]
+  for = "/equipo/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"

@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches: [main, 'astro/**']
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      # SHAs fijados, tomados de MueveCancun/.github/workflows (patrón del autor)
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Tipos (astro check, TypeScript estricto)
+        run: npm run check
+      - name: Pruebas
+        run: npm test
+      - name: Auditoría de integridad (informativa)
+        run: npm run audit
+      - name: Build
+        run: npm run build

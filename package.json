@@ -1,0 +1,30 @@
+{
+  "name": "cantabria-pms",
+  "version": "7.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hotel Cantabria — PMS multihotel + landing multilingüe (Astro + TypeScript estricto)",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "npm run stage-data && astro dev",
+    "stage-data": "tsx scripts/stage-data.ts",
+    "check": "astro check",
+    "test": "vitest run",
+    "audit": "tsx scripts/audit.ts",
+    "build": "npm run stage-data && astro check && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.4.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.0",
+    "tsx": "^4.20.0"
+  }
+}

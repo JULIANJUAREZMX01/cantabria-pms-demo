@@ -1,0 +1,114 @@
+---
+import Base from '@/layouts/Base.astro';
+import { guest } from '@/i18n/guest.ts';
+import { HOTEL, LANGS, EXTRAS_CATALOG, type Lang } from '@/lib/config.ts';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = guest[lang];
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const langHref = (id: Lang) => (id === 'es' ? base : `${base}${id}/`);
+const amenities = [t.a1, t.a2, t.a3, t.a4, t.a5, t.a6];
+const segments = [[t.seg1T, t.seg1D], [t.seg2T, t.seg2D], [t.seg3T, t.seg3D]] as const;
+const rooms = [[t.r1, t.r1d], [t.r2, t.r2d], [t.r3, t.r3d]] as const;
+const clientData = {
+  lang,
+  base,
+  copy: { bookDone: t.bookDone, errors: t.errors, ticketT: t.ticketT, ticketRef: t.ticketRef, ticketTxt: t.ticketTxt, waPrefill: t.waPrefill, liveNote: t.liveNote },
+  whatsapp: HOTEL.whatsapp,
+  rate: HOTEL.defaultRate,
+};
+const chips = [
+  { intent: 'agua', label: `💧 ${EXTRAS_CATALOG[0].name}` },
+  { intent: 'cafe', label: `☕ ${EXTRAS_CATALOG[1].name}` },
+  { intent: 'kit', label: `🧴 ${EXTRAS_CATALOG[2].name}` },
+  { intent: 'amenidades', label: '🧻' },
+  { intent: 'mantenimiento', label: '🔧' },
+] as const;
+---
+<Base title={`${HOTEL.brand} · ${HOTEL.city}`} lang={lang} description={t.heroSub}>
+  <header class="hero">
+    <div class="wrap">
+      <h1>{t.heroTitle}</h1>
+      <p>{t.heroSub}</p>
+      <p class="muted">{t.heroNote}</p>
+      <nav class="langs" aria-label={t.langTitle}>
+        {LANGS.map((l) => (
+          <a href={langHref(l.id)} hreflang={l.id} aria-current={l.id === lang ? 'true' : undefined}>{l.flag} {l.name}</a>
+        ))}
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="block">
+      <h2>{t.forYou}</h2>
+      <div class="grid cols-3">
+        {segments.map(([title, text]) => (<div class="card"><h3>{title}</h3><p>{text}</p></div>))}
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>{t.roomsTitle}</h2>
+      <p class="muted">{t.roomsSub}</p>
+      <div class="grid cols-3">
+        {rooms.map(([title, text]) => (<div class="card"><h3>{title}</h3><p>{text}</p></div>))}
+      </div>
+      <p id="live-note" class="muted" hidden></p>
+    </section>
+
+    <section class="block">
+      <h2>{t.amenTitle}</h2>
+      <div class="row tight">{amenities.map((a) => <span class="pill">{a}</span>)}</div>
+    </section>
+
+    <section class="block">
+      <h2>{t.bookTitle}</h2>
+      <p class="muted">{t.bookSub}</p>
+      <div class="card" id="book-card">
+        <div class="grid">
+          <div><label for="b-name">{t.fName}</label><input id="b-name" autocomplete="name" /></div>
+          <div class="row">
+            <div><label for="b-in">{t.fIn}</label><input id="b-in" type="date" /></div>
+            <div><label for="b-out">{t.fOut}</label><input id="b-out" type="date" /></div>
+          </div>
+          <div><label for="b-phone">{t.fPhone}</label><input id="b-phone" inputmode="tel" autocomplete="tel" /></div>
+          <button id="b-send" type="button">{t.bookBtn}</button>
+          <p id="b-error" class="muted hidden" role="alert"></p>
+        </div>
+      </div>
+      <div id="ticket" class="card ticket hidden" aria-live="polite">
+        <h3>{t.ticketT}</h3>
+        <p class="muted">{t.ticketRef}</p>
+        <p class="ref" id="t-ref"></p>
+        <p>{t.ticketTxt}</p>
+        <a id="t-wa" class="btn" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>KynicOS · Concierge</h2>
+      <p class="muted">{t.concierge}</p>
+      <div class="card chat">
+        <div class="row tight" id="chips">
+          {chips.map((c) => <button type="button" class="ghost" data-intent={c.intent}>{c.label}</button>)}
+        </div>
+        <div class="row">
+          <div><label for="c-room">№</label><input id="c-room" inputmode="numeric" placeholder="101" /></div>
+          <div style="flex-basis: 60%"><label for="c-text">…</label><input id="c-text" /></div>
+          <button id="c-send" type="button">→</button>
+        </div>
+        <div id="c-log" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap muted">
+    <p>{t.madeIn} · {HOTEL.address} · {HOTEL.phoneDisplay}</p>
+    <p><a href={`${base}equipo/`}>{t.staffBtn}</a></p>
+  </footer>
+
+  <script type="application/json" id="landing-data" set:html={JSON.stringify(clientData)} />
+  <script>
+    import '@/client/landing.ts';
+  </script>
+</Base>

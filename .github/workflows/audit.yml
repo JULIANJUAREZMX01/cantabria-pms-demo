@@ -1,0 +1,40 @@
+name: Auditoría semanal
+on:
+  schedule:
+    - cron: '0 14 * * 1'   # lunes 14:00 UTC = 09:00 Cancún (UTC-5)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Auditar data.js real
+        run: npm run audit
+      - name: Guardar reporte en el repo
+        run: |
+          git config user.name "cantabria-audit[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/
+          git diff --cached --quiet || (git commit -m "chore(audit): reporte semanal $(date -u +%F)" && git push)
+      - name: Avisar por Telegram (si hay credenciales)
+        run: |
+          if [ -n "$TG_TOKEN" ] && [ -n "$TG_CHAT" ]; then
+            curl -sS "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+              --data-urlencode "chat_id=${TG_CHAT}" \
+              --data-urlencode "text=$(cat reports/latest-summary.txt)" >/dev/null
+          else
+            echo "Sin TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID: se omite el aviso."
+          fi

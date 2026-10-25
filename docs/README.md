@@ -1,26 +1,28 @@
-# Hotel Cantabria PMS — Documentación de Arquitectura
+# Hotel Cantabria PMS — Documentación de arquitectura
 
-Sistema PMS multihotel + landing de huésped para la cadena Cantabria.
-Sede piloto: **Hotel Cantabria Tulancingo** (laboratorio "Proyecto Beta").
+Sistema PMS multihotel + landing de huésped. Sede piloto: **Hotel Cantabria Tulancingo**.
 
-## Mapa del sistema (v6.1)
-
-- **Landing del huésped:** `index.html` — una sola página, 5 idiomas (ES ancla, EN, ZH, DE, FR), reserva directa, concierge IA, WhatsApp del jefe.
-- **PMS del personal:** `admin.html` — tabs Inicio/Limpieza/Recepción/Concierge/Reservar + Modo Dueño (👑).
-- **Datos vivos:** `data.js` (+ CSVs en `/csv/`) publicados automáticamente por `cantabriaPublish` tras cada cambio en la base.
-- **Backend Base44:** entidades `Stay, RoomStatus, ExtraOrder, ServiceRequest, Guest, GuestReview, HotelProperty`; funciones `cantabriaRead`, `cantabriaWrite`, `cantabriaPublish`; 4 workflows entity-trigger + 1 semanal.
-- **Agente KynicOS:** registra operaciones por Telegram, arma paquetes WhatsApp de confirmación en el idioma del huésped y ejecuta la optimización continua.
+## Mapa del sistema (v7, Astro + TypeScript)
+- **Landing del huésped:** `/` (es) y `/en/ /zh/ /de/ /fr/` — reserva directa con ticket CB-XXXXX, concierge, WhatsApp.
+- **Equipo:** `/equipo/` — vistas por sombrero: Recepción, Limpieza, Mantenimiento, Concierge, Dueño.
+- **Datos:** `data.js` + `csv/` los publica Base44; el build genera además `public.json` (solo conteos, sin PII).
+- **Backend:** Base44 (`cantabriaWrite`, `cantabriaPublish`) detrás de un `Gateway`; ver ADR-009.
+- **Automatización:** GitHub Actions (CI, Pages, auditoría semanal) + agente KynicOS (criterio y avisos).
 
 ## Registro de decisiones (ADR)
-
 | ADR | Título | Estado |
 |---|---|---|
 | [001](adr/ADR-001-arquitectura-pms.md) | Frontend estático en GitHub Pages + backend Base44 | Aceptada |
-| [002](adr/ADR-002-seguridad-escrituras-pin.md) | Escrituras reales con PIN + service role | Aceptada |
-| [003](adr/ADR-003-landing-i18n-huesped.md) | Una sola landing con i18n, español por defecto | Aceptada |
-| [004](adr/ADR-004-funnel-reserva-whatsapp.md) | Funnel de reserva con ticket y confirmación WhatsApp | Aceptada |
-| [005](adr/ADR-005-optimizacion-continua-calendario.md) | Optimización continua autónoma + ADRs | Aceptada |
-| [006](adr/ADR-006-concierge-ia-landing.md) | Concierge IA en la landing (SkillRouter de KynicOS) | Aceptada |
-| [ROADMAP](adr/ROADMAP-repositorios-reutilizables.md) | Repositorios del autor reutilizables | Análisis |
+| [002](adr/ADR-002-seguridad-escrituras-pin.md) | Escrituras reales con PIN + service role | Aceptada (ver 009) |
+| [003](adr/ADR-003-landing-i18n-huesped.md) | Una sola landing con i18n | Aceptada |
+| [004](adr/ADR-004-funnel-reserva-whatsapp.md) | Funnel de reserva con ticket y WhatsApp | Aceptada |
+| [005](adr/ADR-005-optimizacion-continua-calendario.md) | Optimización continua + ADRs | Aceptada |
+| [006](adr/ADR-006-concierge-ia-landing.md) | Concierge IA en la landing | Aceptada |
+| [007](adr/ADR-007-astro-typescript.md) | Migración a Astro + TypeScript estricto | Propuesta |
+| [008](adr/ADR-008-eventos-y-sombreros.md) | Un registro de eventos y vistas por sombrero | Propuesta |
+| [009](adr/ADR-009-gateway-y-deuda-de-seguridad.md) | Frontera con el backend y deuda de seguridad | Propuesta |
+| [010](adr/ADR-010-reutilizacion-de-repos.md) | Qué se reutiliza de los repos del autor | Propuesta |
+| [011](adr/ADR-011-despliegue-y-workflows.md) | Despliegue y workflows en GitHub | Propuesta |
+| [012](adr/ADR-012-hosting-netlify-y-pages.md) | Un build, dos destinos: Netlify (producción) y Pages (demo) | Propuesta |
 
-Convención ADR: **Contexto / Decisión / Consecuencias**. Toda optimización (humana o de agente) agrega o actualiza un ADR.
+Convención: **Contexto / Decisión / Consecuencias**. Las ADR nuevas nacen "Propuesta" y pasan a "Aceptada" solo cuando las aprueba una persona.
