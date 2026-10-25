@@ -7,6 +7,18 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - **Turno semanal:** lunes 09:00 (America/Cancun) — workflow "Cantabria Optimización Semanal".
 - Rutina: salud de páginas y datos → consistencia de BD → UNA mejora reversible → ADR → fila en este registro → reporte por Telegram.
 
+
+## 2026-10-25 · Turno extraordinario: reporte Gemini + Netlify
+
+- Recibido el reporte del agente Gemini (migración Astro/Netlify, ADR-007..012, sesiones firmadas).
+- Rama `astro/migracion` creada con su proyecto completo (commit 3e0aa8f), CI de GitHub corriendo.
+- Backend Base44 endurecido (yo):
+  - `cantabriaWrite.checkIn` ahora deduplica por `Ref CB-XXXXX` (fin de reservas duplicadas, ADR-009).
+  - Nuevas acciones `updateRequest` y `updateExtra` (ADR-009).
+  - `cantabriaPublish` ya NO publica teléfonos de huéspedes en data.js ni CSVs (scrub `Tel: [privado]`); `guests` fuera del payload público. Verificado en producción: 0 teléfonos expuestos.
+- Repo espejo confirmado: `sistemascancunjefe-ai/cantabria-pms-demo-v01AI` (idéntico a main, solo lectura).
+- Pendientes humanos: deploy de prueba en Netlify; decidir promo $300 vs $650; confirmar "EST. 1928" con el dueño; rotar token+PINs al cutover; pasar repo a privado tras validar Netlify.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
