@@ -4,6 +4,8 @@ export const HOTEL = {
   /** Nombre exacto de la propiedad en la base (Base44). */
   propertyName: 'Hotel Cantabria Tulancingo',
   brand: 'Hotel Cantabria',
+  /** Año de fundación confirmado por el dueño (2026-10-25). */
+  est: 1928,
   tagline: 'Es mi casa, es tu casa',
   city: 'Tulancingo, Hidalgo',
   /** Dirección del cartel de marca. La BD trae otra: ver auditoría `data/address-mismatch`. */
@@ -13,7 +15,7 @@ export const HOTEL = {
   phoneDisplay: '+52 775 759 1185',
   timeZone: 'America/Mexico_City',
   /** Tarifa por defecto de reserva web (hoy fija en el frontend). */
-  defaultRate: 650,
+  defaultRate: 300,
 } as const;
 
 export const EXTRAS_CATALOG = [
