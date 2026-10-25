@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" >
+  <!-- Fondo Azul Cobalto -->
+  <rect width="100" height="100" rx="20" fill="#0D47A1"/>
+  <!-- Marco Dorado de Telar -->
+  <rect x="8" y="8" width="84" height="84" rx="14" fill="none" stroke="#FFD700" stroke-width="3" stroke-dasharray="8 4"/>
+  <!-- Letra C (Cantabria) Estilizada con el Reloj en el Centro -->
+  <path d="M 65 30 C 55 18, 30 20, 28 50 C 26 80, 55 82, 65 70" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  <!-- Silueta sutil del Reloj Monumental en Dorado -->
+  <path d="M 48 40 L 52 40 L 52 58 L 48 58 Z M 46 38 L 54 38 L 50 32 Z" fill="#FFD700"/>
+  <circle cx="50" cy="46" r="2" fill="#0D47A1"/>
+</svg>

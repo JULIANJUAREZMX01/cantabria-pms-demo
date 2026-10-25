@@ -1,0 +1,45 @@
+---
+import '@/styles/global.css';
+interface Props { title: string; lang?: string; description?: string; image?: string; jsonLd?: object; noindex?: boolean }
+const { title, lang = 'es', description = 'Hotel Cantabria · Tulancingo, Hidalgo', image, jsonLd, noindex = false } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const site = (Astro.site?.toString() ?? '').replace(/\/$/, '');
+const path = Astro.url.pathname;
+const canonical = `${site}${path}`;
+const ogImage = image ? `${site}${image}` : undefined;
+const ogLocale: Record<string, string> = { es: 'es_MX', en: 'en_US', zh: 'zh_CN', de: 'de_DE', fr: 'fr_FR' };
+const alt = [['es', ''], ['en', 'en/'], ['zh', 'zh/'], ['de', 'de/'], ['fr', 'fr/']] as const;
+const isLanding = !path.includes('/equipo');
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d47a1" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    {isLanding && alt.map(([l, p]) => <link rel="alternate" hreflang={l} href={`${site}${base}${p}`} />)}
+    {isLanding && <link rel="alternate" hreflang="x-default" href={`${site}${base}`} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hotel Cantabria" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale[lang] ?? 'es_MX'} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="geo.region" content="MX-HID" />
+    <meta name="geo.placename" content="Tulancingo de Bravo" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

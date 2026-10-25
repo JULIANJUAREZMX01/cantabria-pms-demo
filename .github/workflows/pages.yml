@@ -1,0 +1,44 @@
+name: Deploy a GitHub Pages
+on:
+  push:
+    branches: [main]   # incluye los commits de data.js / csv/ que hace Base44
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # demo = nada sale del navegador · legacy = escribe en Base44 (contrato actual)
+      PUBLIC_GATEWAY_MODE: ${{ vars.GATEWAY_MODE || 'demo' }}
+      PUBLIC_WRITE_API: ${{ vars.WRITE_API || 'https://kynic-os-ee9fcf0d.base44.app/functions/cantabriaWrite' }}
+      PUBLIC_WRITE_TOKEN: ${{ secrets.CANTABRIA_WRITE_TOKEN || vars.CANTABRIA_WRITE_TOKEN }}
+      PUBLIC_STAFF_PIN: ${{ secrets.CANTABRIA_STAFF_PIN || vars.CANTABRIA_STAFF_PIN }}
+      PUBLIC_OWNER_PIN: ${{ secrets.CANTABRIA_OWNER_PIN || vars.CANTABRIA_OWNER_PIN }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

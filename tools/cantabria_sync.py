@@ -31,7 +31,6 @@ except ImportError:
 # ---------- CONFIG ----------
 SITE = "https://julianjuarezmx01.github.io/cantabria-pms-demo"
 API = "https://kynic-os-ee9fcf0d.base44.app/functions"
-TOKEN = "cantabria-beta-2026"
 XLSX = "cantabria_live.xlsx"
 AGENT_ID = "69cfdbf8f38ae270ee9fcf0d"
 AGENT_API = "https://app.base44.com/api/agents"
