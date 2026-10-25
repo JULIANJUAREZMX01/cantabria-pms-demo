@@ -25,7 +25,7 @@ const chips = [
   { intent: 'mantenimiento', label: '🔧' },
 ] as const;
 const img = (n: string) => `${base}brand/${n}.webp`;
-const pillars = [[t.pil1, t.pil1d, '🛡️'], [t.pil2, t.pil2d, '🔒'], [t.pil3, t.pil3d, '🤝']] as const;
+const pillars = [[t.pil1, t.pil1d, '❦'], [t.pil2, t.pil2d, '✦'], [t.pil3, t.pil3d, '❧']] as const;
 const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(HOTEL.mapQuery)}&output=embed`;
 const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(HOTEL.mapQuery)}`;
 const gallery = [
@@ -61,7 +61,7 @@ const jsonLd = {
       <h1>{t.heroTitle}</h1>
       <p class="lead">{t.heroSub}</p>
       <p class="muted">{t.heroNote}</p>
-      <p class="promo-pill">{t.heroPromo}</p>
+      <p class="promo-pill"><span aria-hidden="true">✦</span> {t.heroPromo} <span aria-hidden="true">✦</span></p>
       <div class="cta-row">
         <a class="btn" href="#reservar">{t.heroCta}</a>
         <a class="btn ghost" href="#ubicacion">{t.heroCta2}</a>
@@ -78,12 +78,14 @@ const jsonLd = {
     <section class="block story">
       <img class="seal" src={img('sello-talavera')} alt="Sello de Hotel Cantabria con la torre del reloj de Tulancingo" width="260" height="260" loading="lazy" />
       <div>
+        <p class="eyebrow">Hotel Cantabria · Tulancingo · Est. 1928</p>
         <h2>{t.storyT}</h2>
         <p>{t.storyP1}</p>
         <p>{t.storyP2}</p>
       </div>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block">
       <h2>{t.pillarsT}</h2>
       <div class="grid cols-3">
@@ -91,6 +93,7 @@ const jsonLd = {
       </div>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block promo-band">
       <img src={img('monograma-promo')} alt="Monograma C de Hotel Cantabria con la torre del reloj" width="220" height="220" loading="lazy" />
       <div>
@@ -100,6 +103,7 @@ const jsonLd = {
       </div>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block">
       <h2>{t.forYou}</h2>
       <div class="grid cols-3">
@@ -107,6 +111,7 @@ const jsonLd = {
       </div>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block">
       <h2>{t.roomsTitle}</h2>
       <p class="muted">{t.roomsSub}</p>
@@ -121,7 +126,7 @@ const jsonLd = {
       <div class="row tight">{amenities.map((a) => <span class="pill">{a}</span>)}</div>
     </section>
 
-    <section class="block" id="reservar">
+    <section class="block cta-block" id="reservar">
       <h2>{t.bookTitle}</h2>
       <p class="muted">{t.bookSub}</p>
       <div class="card" id="book-card">
@@ -145,6 +150,7 @@ const jsonLd = {
       </div>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block">
       <h2>{t.galT}</h2>
       <div class="gallery">
@@ -156,6 +162,7 @@ const jsonLd = {
       </div>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block" id="resenas">
       <h2>{t.revT}</h2>
       <div class="grid cols-2">
@@ -170,6 +177,7 @@ const jsonLd = {
       <p class="muted">{t.revNote}</p>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block" id="ubicacion">
       <h2>{t.mapT}</h2>
       <div class="map-wrap">
@@ -184,6 +192,7 @@ const jsonLd = {
       <p class="muted">{t.mapNote}</p>
     </section>
 
+    <div class="orn" aria-hidden="true"><i></i><b>❦</b><i></i></div>
     <section class="block">
       <h2>KynicOS · Concierge</h2>
       <p class="muted">{t.concierge}</p>

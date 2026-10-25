@@ -22,6 +22,9 @@ const isLanding = !path.includes('/equipo');
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Great+Vibes&display=swap" rel="stylesheet" />
     {isLanding && alt.map(([l, p]) => <link rel="alternate" hreflang={l} href={`${site}${base}${p}`} />)}
     {isLanding && <link rel="alternate" hreflang="x-default" href={`${site}${base}`} />}
     <meta property="og:type" content="website" />
