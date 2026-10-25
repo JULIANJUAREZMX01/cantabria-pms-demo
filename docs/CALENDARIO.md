@@ -77,6 +77,11 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Hoja de impresión en public/qr/imprimir.html; generador versionado en tools/gen_qrs.py; estrategia completa en docs/QR-ESTRATEGIA.md (mapa por zonas, tamaños, materiales, pendientes).
 - Pendientes Julián: credenciales del wifi (QR nativo), reclamar ficha Google antes del QR de reseñas, dominio propio (regenerar QRs con un comando).
 
+## 2026-10-25 · QRs WiFi por piso
+
+- Julián entregó capturas de las dos redes: piso 1 y piso 2 (2.4G). Generados wifi-piso1.png y wifi-piso2.png (formato nativo WIFI:T:WPA, verificados con OpenCV), añadidos a imprimir.html y QR-ESTRATEGIA.md. Total sistema QR: 7 códigos. Pendiente: QR de reseñas (ficha Google).
+- Seguridad: la clave está embebida en el QR por diseño (comportamiento estándar de WiFi QR); el repo es público, evaluar rotar clave al pasar el repo a privado o publicar solo la hoja de impresión fuera del repo.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
