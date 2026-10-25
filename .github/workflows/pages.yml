@@ -17,9 +17,9 @@ jobs:
       # demo = nada sale del navegador · legacy = escribe en Base44 (contrato actual)
       PUBLIC_GATEWAY_MODE: ${{ vars.GATEWAY_MODE || 'demo' }}
       PUBLIC_WRITE_API: ${{ vars.WRITE_API || 'https://kynic-os-ee9fcf0d.base44.app/functions/cantabriaWrite' }}
-      PUBLIC_WRITE_TOKEN: ${{ secrets.CANTABRIA_WRITE_TOKEN }}
-      PUBLIC_STAFF_PIN: ${{ secrets.CANTABRIA_STAFF_PIN }}
-      PUBLIC_OWNER_PIN: ${{ secrets.CANTABRIA_OWNER_PIN }}
+      PUBLIC_WRITE_TOKEN: ${{ secrets.CANTABRIA_WRITE_TOKEN || vars.CANTABRIA_WRITE_TOKEN }}
+      PUBLIC_STAFF_PIN: ${{ secrets.CANTABRIA_STAFF_PIN || vars.CANTABRIA_STAFF_PIN }}
+      PUBLIC_OWNER_PIN: ${{ secrets.CANTABRIA_OWNER_PIN || vars.CANTABRIA_OWNER_PIN }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
