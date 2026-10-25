@@ -19,6 +19,11 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Repo espejo confirmado: `sistemascancunjefe-ai/cantabria-pms-demo-v01AI` (idéntico a main, solo lectura).
 - Pendientes humanos: deploy de prueba en Netlify; decidir promo $300 vs $650; confirmar "EST. 1928" con el dueño; rotar token+PINs al cutover; pasar repo a privado tras validar Netlify.
 
+## 2026-10-25 · Decisiones de negocio cerradas
+
+- **Promo $300/noche SÍ aplica a reservas web directas.** Aplicado en: landing viva (main), admin Reservar (main) y `defaultRate` de la política del servidor en `astro/migracion` (commit 41210ae). $650 queda obsoleto.
+- **EST. 1928 confirmado como real por el dueño.** Ya visible en el header de la landing; agregado como `HOTEL.est` en la config de la rama Astro para que Gemini lo renderice en los escudos.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
