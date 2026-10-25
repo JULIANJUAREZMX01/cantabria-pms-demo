@@ -55,6 +55,13 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - URLs: huésped = / · personal = /equipo/ (PINs sin cambio: 2026 staff, 1717 dueño).
 - Dependabot abrió PRs de actualización (pendientes de revisión en un turno regular).
 
+## 2026-10-25 · Landing v8: rediseño colonial elevado (petición de Julián)
+
+- "Puedes hacerlo mucho mejor" → iteración de diseño sobre la v7 viva: tipografía real (Playfair Display en títulos, Great Vibes en el eslogan), paleta exacta del cartel (#1a3e6d azul, #b8893a oro, #c7986b cinta, #d15a42 terracota, #5a8f7d salvia), medallones ornamentales (❦ ✦ ❧) en pilares, divisores con filete dorado, eyebrow "HOTEL CANTABRIA · EST. 1928", hero con doble marco dorado, tarjetas con sombra y hover, botones con gradiente y elevación, y la sección de reserva como bloque de conversión destacado (azul profundo + botón dorado).
+- Emojis de los pilares retirados (eran cheap para la marca); concierge conserva los chips utilitarios.
+- Verificado en producción con capturas: hero enmarcado + reserva destacada renderizan bien; CI verde, 42/42 pruebas, astro check 0 errores.
+- Siguientes candidatos de diseño (a proponer): favicon con monograma vectorizado, patrón de talavera tenue de fondo en secciones alternas, animación de entrada en el sello, versión oscura no (marca es clara).
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
