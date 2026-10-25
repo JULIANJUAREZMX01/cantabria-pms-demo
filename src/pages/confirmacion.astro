@@ -1,0 +1,65 @@
+---
+import Base from '@/layouts/Base.astro';
+import { guest } from '@/i18n/guest.ts';
+import { HOTEL } from '@/lib/config.ts';
+const t = guest.es;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const allT = guest;
+const whatsapp = HOTEL.whatsapp;
+---
+<Base title={`${t.ticketT} · Hotel Cantabria`} lang="es" description="Confirmación de reserva · Hotel Cantabria Tulancingo" noindex={true}>
+  <main class="wrap confirm-main">
+    <section class="block confirm-card" id="confirm-card">
+      <div class="orn">❦</div>
+      <p class="tagline" data-i18n="ticketT">{t.ticketT}</p>
+      <h1 data-i18n="bookDone">{t.bookDone}</h1>
+      <p class="confirm-ref"><span data-i18n="ticketRef">{t.ticketRef}</span>: <strong id="c-ref">CB-—</strong></p>
+      <p class="muted" data-i18n="ticketTxt">{t.ticketTxt}</p>
+      <div class="confirm-dates">
+        <div><span data-i18n="fIn">{t.fIn}</span> <strong id="c-in">—</strong></div>
+        <div><span data-i18n="fOut">{t.fOut}</span> <strong id="c-out">—</strong></div>
+      </div>
+      <a class="btn gold" id="c-wa" target="_blank" rel="noopener" data-i18n="waConfirmT">{t.waConfirmT}</a>
+      <a class="btn ghost" href={base} id="c-home">← <span data-i18n="confHome">Volver al inicio</span></a>
+      <div class="orn">❦</div>
+    </section>
+  </main>
+  <script type="application/json" id="confirm-data" set:html={JSON.stringify({ base, whatsapp, allT })} />
+  <script>
+    /* Confirmación de reserva: una sola URL para conversión limpia (GA4/Ads).
+       GA: pásame tu Measurement ID (G-XXXXXXX) y se activa el gtag + evento. */
+    const GA_ID = '';
+    const params = new URLSearchParams(location.search);
+    const raw = JSON.parse(document.getElementById('confirm-data')?.textContent ?? '{}');
+    const allT = raw.allT ?? {};
+    const lang = params.get('lang') ?? 'es';
+    const t = allT[lang] ?? allT.es;
+
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+      const v = t?.[el.dataset.i18n ?? ''];
+      if (typeof v === 'string') el.textContent = v;
+    });
+    document.documentElement.lang = lang;
+
+    const ref = params.get('ref') ?? 'CB-—';
+    document.getElementById('c-ref')!.textContent = ref;
+    document.getElementById('c-in')!.textContent = params.get('in') ?? '—';
+    document.getElementById('c-out')!.textContent = params.get('out') ?? '—';
+
+    const wa = document.getElementById('c-wa') as HTMLAnchorElement;
+    const msg = `${t?.waPrefill ?? 'Hola'} ${ref}`;
+    wa.href = `https://wa.me/${String(raw.whatsapp).replace(/[^0-9]/g, '')}?text=${encodeURIComponent(msg)}`;
+
+    if (GA_ID) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.append(s);
+      (window as unknown as Record<string, unknown>).dataLayer = (window as unknown as Record<string, unknown[]>).dataLayer ?? [];
+      const gtag = (...args: unknown[]) => ((window as unknown as { dataLayer: unknown[] }).dataLayer.push(args));
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+      gtag('event', 'reservation_confirmed', { reservation_reference: ref, language: lang });
+    }
+  </script>
+</Base>

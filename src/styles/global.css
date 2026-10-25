@@ -250,3 +250,14 @@ section.block { padding: 1.9rem 0; }
 .ribbon-group b { color: #2a1f0e; opacity: .7; font-weight: 400; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none; } .ribbon, .ribbon.flip { transform: none; margin-inline: 0; } }
+
+/* Pagina de confirmacion (conversion GA4/Ads) */
+.confirm-main { display: grid; place-items: center; min-height: 78vh; }
+.confirm-card { max-width: 34rem; text-align: center; background: #fffaf0; border: 1px solid rgba(184,137,60,.4); border-radius: 1.2rem; padding: 2.4rem 1.8rem; box-shadow: 0 18px 44px rgba(26,62,109,.14); }
+.confirm-card .tagline { font-family: var(--font-script); font-size: 2.1rem; color: var(--gold); margin: .2rem 0; }
+.confirm-card h1 { font-size: 1.5rem; margin: .1rem 0 .8rem; }
+.confirm-ref { font-size: 1.15rem; margin: .4rem 0; }
+.confirm-ref strong { font-family: var(--font-display); letter-spacing: .08em; color: var(--blue); }
+.confirm-dates { display: flex; justify-content: center; gap: 1.6rem; margin: .8rem 0 1.4rem; font-size: .95rem; color: var(--ink); }
+.confirm-dates strong { display: block; font-family: var(--font-display); color: var(--blue); }
+.confirm-card .btn { display: inline-block; margin: .45rem .25rem 0; }

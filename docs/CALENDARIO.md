@@ -86,6 +86,12 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 
 - Julián entregó la red 5G del piso 2. Generado wifi-piso2-5g.png (verificado OpenCV), añadido a imprimir.html y QR-ESTRATEGIA.md. Sistema QR: 8 códigos. Pendiente por confirmar: si existe red 5G del piso 1 (no se ha recibido captura).
 
+## 2026-10-25 · Página de confirmación /confirmacion (ADR-014)
+
+- Nueva subpágina única (i18n por ?lang=, noindex) que aterriza el funnel de reserva con referencia y fechas en la URL. La landing redirige tras despachar el evento (500 ms de ticket visible).
+- Hook GA listo: GA_ID vacío en el script; al recibir el Measurement ID de Julián se activa gtag.js + evento reservation_confirmed. Sin ID, el objetivo puede crearse en GA4 como page_location contiene /confirmacion.
+- Build 7 páginas, 42/42 pruebas, astro check 0 errores.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|

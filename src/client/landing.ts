@@ -67,6 +67,9 @@ $<HTMLButtonElement>('#b-send').addEventListener('click', async () => {
   $<HTMLAnchorElement>('#t-wa').href = waLink(data.whatsapp, `${data.copy.waPrefill} ${reference}`);
   $('#book-card').classList.add('hidden');
   $('#ticket').classList.remove('hidden');
+  /* Conversion: aterrizar en la pagina de confirmacion medible (GA4/Ads). */
+  const q = `?ref=${encodeURIComponent(reference)}&lang=${lang}&in=${encodeURIComponent(checkIn)}&out=${encodeURIComponent(checkOut)}`;
+  window.setTimeout(() => window.location.assign(`${data.base}confirmacion${q}`), 500);
 });
 
 /* Concierge: chips o texto libre → acción verificable o traspaso a una persona. */
