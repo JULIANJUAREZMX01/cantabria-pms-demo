@@ -1,4 +1,5 @@
 room_id,property_name,room_type,guest,status,priority,notes,id
+999,Hotel Cantabria Tulancingo,Habitación,Prueba Dedupe,lista,Media,Check-in registrado,6adda82cf0e62307b3f3e1f7
 Por asignar,Hotel Cantabria Tulancingo,Habitación,Fulanito de,lista,Media,Check-in registrado,6adc6826564a0a1b6f3d40df
 213,Hotel Cantabria Tulancingo,Habitación,Julián Alexander Juárez Alvarado El perro máquina humana cínica ,lista,Media,Check-in registrado,6adc677865bf81e8daa394b2
 105,Hotel Cantabria Tulancingo,Habitación,Laura Vega,lista,Media,Check-in registrado,6adc588321ae79515c09295a
