@@ -74,6 +74,25 @@ const jsonLd = {
     </div>
   </header>
 
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <div class="ribbon-group">
+          <span>“{t.brandTag}”</span><b>✦</b>
+          <span class="cap">EST. {HOTEL.est}</span><b>✦</b>
+          <span>$300 MXN</span><b>✦</b>
+          <span class="cap">Tulancingo · Hidalgo</span><b>✦</b>
+          <span>{HOTEL.brand}</span><b>✦</b>
+        </div>
+      <div class="ribbon-group">
+          <span>“{t.brandTag}”</span><b>✦</b>
+          <span class="cap">EST. {HOTEL.est}</span><b>✦</b>
+          <span>$300 MXN</span><b>✦</b>
+          <span class="cap">Tulancingo · Hidalgo</span><b>✦</b>
+          <span>{HOTEL.brand}</span><b>✦</b>
+        </div>
+    </div>
+  </div>
+
   <main class="wrap">
     <section class="block story">
       <img class="seal" src={img('sello-talavera')} alt="Sello de Hotel Cantabria con la torre del reloj de Tulancingo" width="260" height="260" loading="lazy" />
@@ -210,6 +229,25 @@ const jsonLd = {
     </section>
   </main>
 
+  <div class="ribbon flip" aria-hidden="true">
+    <div class="ribbon-track">
+      <div class="ribbon-group">
+          <span>“{t.brandTag}”</span><b>✦</b>
+          <span class="cap">EST. {HOTEL.est}</span><b>✦</b>
+          <span>$300 MXN</span><b>✦</b>
+          <span class="cap">Tulancingo · Hidalgo</span><b>✦</b>
+          <span>{HOTEL.brand}</span><b>✦</b>
+        </div>
+      <div class="ribbon-group">
+          <span>“{t.brandTag}”</span><b>✦</b>
+          <span class="cap">EST. {HOTEL.est}</span><b>✦</b>
+          <span>$300 MXN</span><b>✦</b>
+          <span class="cap">Tulancingo · Hidalgo</span><b>✦</b>
+          <span>{HOTEL.brand}</span><b>✦</b>
+        </div>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="wrap">
       <img src={img('rotulo-sobrio')} alt="Hotel Cantabria, Tulancingo, Hidalgo" width="160" height="160" loading="lazy" class="foot-sign" />
@@ -224,5 +262,6 @@ const jsonLd = {
   <script type="application/json" id="landing-data" set:html={JSON.stringify(clientData)} />
   <script>
     import '@/client/landing.ts';
+    import '@/client/motion.ts';
   </script>
 </Base>

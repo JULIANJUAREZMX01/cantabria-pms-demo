@@ -239,3 +239,14 @@ section.block { padding: 1.9rem 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* Cinta marquesina (la cinta del cartel, viva) */
+.ribbon { overflow: hidden; background: linear-gradient(180deg, var(--ribbon), #b8815a); box-shadow: 0 8px 24px rgba(26, 62, 109, .2); transform: rotate(-1.2deg) scale(1.04); margin: 1.8rem -1rem 0; }
+.ribbon.flip { transform: rotate(1.2deg) scale(1.04); margin: 2.6rem -1rem 0; }
+.ribbon-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.ribbon-group { display: flex; align-items: center; gap: 1.7rem; padding: .5rem .85rem; }
+.ribbon-group span { font-family: var(--font-script); font-size: 1.4rem; color: #fff8ea; white-space: nowrap; }
+.ribbon-group .cap { font-family: var(--font-display); font-size: .8rem; letter-spacing: .28em; text-transform: uppercase; }
+.ribbon-group b { color: #2a1f0e; opacity: .7; font-weight: 400; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none; } .ribbon, .ribbon.flip { transform: none; margin-inline: 0; } }
