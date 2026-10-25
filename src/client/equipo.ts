@@ -10,6 +10,7 @@ import {
 } from '@/domain/selectors.ts';
 import { ROOM_STATUS, type RoomStatus, type Stay } from '@/domain/types.ts';
 import { PEOPLE } from '@/data/people.ts';
+import { quote } from '@/domain/pricing.ts';
 import { EXTRAS_CATALOG, HOTEL } from '@/lib/config.ts';
 import { addDays } from '@/lib/dates.ts';
 import type { Session } from '@/gateway/types.ts';
@@ -110,7 +111,7 @@ function walkIn(): HTMLElement {
   const today = todayHotel();
   const name = el('input', { placeholder: 'Nombre del huésped' });
   const nights = el('input', { type: 'number', min: '1', value: '1' });
-  const rate = el('input', { type: 'number', min: '0', value: String(HOTEL.defaultRate) });
+  const rate = el('input', { type: 'number', min: '0', value: String(quote(todayHotel(), addDays(todayHotel(), 1)).avgRate) });
   const free = availableRooms(rt.view(), P, today, addDays(today, 1)).filter((r) => r.status === 'lista');
   if (free.length === 0) return section('Sin reserva previa (walk-in)', empty('No hay habitaciones listas ahora.'));
   const sel = roomSelect('walkin-room', free);

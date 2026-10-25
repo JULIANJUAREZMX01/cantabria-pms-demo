@@ -14,8 +14,10 @@ export const HOTEL = {
   whatsapp: '527757591185',
   phoneDisplay: '+52 775 759 1185',
   timeZone: 'America/Mexico_City',
-  /** Tarifa por defecto de reserva web (hoy fija en el frontend). */
-  defaultRate: 300,
+  /** Tarifa estándar por noche. La tarifa vigente de una estancia sale de quote() (src/domain/pricing.ts). */
+  defaultRate: 650,
+  /** Promoción de cartel: $300 por noche; aplica a las noches ANTERIORES a until (2027-01-01). Confirmar con el dueño si aplica a reservas directas y a estancias que cruzan la fecha. */
+  promo: { rate: 300, until: '2027-01-01' },
 } as const;
 
 export const EXTRAS_CATALOG = [

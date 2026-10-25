@@ -55,7 +55,7 @@ export function buildDemoSnapshot(today: string): Snapshot {
       stay('a2', 'Huésped Demo B', '102', -2, 0, 450, 'activa'), // sale hoy → limpiar primero
       stay('a3', 'Huésped Demo C', '104', 0, 3, 650, 'activa'), // llega hoy
       stay('a4', 'Huésped Demo D', '201', -3, 1, 480, 'activa'),
-      stay('r1', 'Reserva Web Demo', null, 1, 3, HOTEL.defaultRate, 'reservada'),
+      stay('r1', 'Reserva Web Demo', null, 1, 3, 650, 'reservada'),
       stay('r2', 'Reserva Futura Demo', '204', 5, 8, 800, 'reservada'),
     ],
     extras: [],

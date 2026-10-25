@@ -53,7 +53,10 @@ describe('eventos', () => {
     const e = makeEvent({ kind: 'stay.reserve', property: P, actor: guest, guestName: 'Ana', checkIn: '2026-11-01', checkOut: '2026-11-03', rate: 1, reference: 'CB-AAAAA', lang: 'es' });
     const res = await call(req('/api/event', e));
     expect(res.status).toBe(200);
-    expect(sent[0]).toMatchObject({ token: 'SECRETO', action: 'checkIn', rate: HOTEL.defaultRate, status: 'Reservada' });
+    expect(sent[0]).toMatchObject({ token: 'SECRETO', action: 'checkIn', rate: 300, status: 'Reservada' });
+    const later = makeEvent({ kind: 'stay.reserve', property: P, actor: guest, guestName: 'Ana', checkIn: '2027-03-01', checkOut: '2027-03-03', rate: 1, reference: 'CB-BBBBB', lang: 'es' });
+    await call(req('/api/event', later));
+    expect(sent[1]).toMatchObject({ rate: HOTEL.defaultRate });
     expect(JSON.stringify(await res.clone().text())).not.toContain('SECRETO');
   });
   it('el huésped no puede falsear precios ni pedir fuera del catálogo', async () => {

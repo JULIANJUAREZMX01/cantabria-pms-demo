@@ -1,5 +1,6 @@
 import { EXTRAS_CATALOG, HOTEL } from '../lib/config.ts';
 import { nightsBetween } from '../lib/dates.ts';
+import { quote } from '../domain/pricing.ts';
 import { HotelEventSchema, type EventKind, type HotelEvent } from '../domain/events.ts';
 import { can, type Capability } from '../domain/hats.ts';
 import type { SessionClaims } from './auth.ts';
@@ -45,7 +46,7 @@ export function authorize(input: unknown, claims: SessionClaims | null): Verdict
     case 'stay.reserve': {
       const nights = nightsBetween(e.checkIn, e.checkOut);
       if (e.guestName.length > 80 || nights < 1 || nights > 30) return bad(400, 'Datos de reserva fuera de rango');
-      return { ok: true, event: { ...e, actor: { kind: 'guest' }, rate: HOTEL.defaultRate } };
+      return { ok: true, event: { ...e, actor: { kind: 'guest' }, rate: quote(e.checkIn, e.checkOut).avgRate } };
     }
     case 'extra.add': {
       const item = EXTRAS_CATALOG.find((x) => x.name === e.item);

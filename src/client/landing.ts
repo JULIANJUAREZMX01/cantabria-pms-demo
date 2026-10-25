@@ -2,6 +2,7 @@ import { concierge, type Intent } from '@/domain/concierge.ts';
 import { makeEvent } from '@/domain/events.ts';
 import { makeReference, normalizePhone, validateBooking, waLink } from '@/domain/booking.ts';
 import { HOTEL, isLang, type Lang } from '@/lib/config.ts';
+import { quote } from '@/domain/pricing.ts';
 import { todayIn } from '@/lib/dates.ts';
 import { $, el } from './dom.ts';
 import { Runtime } from './runtime.ts';
@@ -56,7 +57,7 @@ $<HTMLButtonElement>('#b-send').addEventListener('click', async () => {
     guestName: name.trim(),
     checkIn,
     checkOut,
-    rate: data.rate,
+    rate: quote(checkIn, checkOut).avgRate,
     reference,
     lang,
     ...(phone ? { phone } : {}),
