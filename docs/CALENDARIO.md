@@ -70,6 +70,13 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Accesibilidad: prefers-reduced-motion desactiva TODO el movimiento (Lenis, tweens y marquesina); sin JS la página queda 100% visible (tweens tipo from, sin estados ocultos en CSS).
 - Verificado en producción: bundles con GSAP/Lenis servidos, hero renderizado post-animación, scroll suave y revelados disparados en E2E, CI verde, 42/42 pruebas, astro check 0 errores.
 
+## 2026-10-25 · Sistema QR v1: 5 códigos de marca generados y verificados
+
+- QRs con identidad (azul #1a3e6d sobre crema #f2e8d5, monograma central, ECC H): fachada-info (landing multiidioma), contacto (vCard descargable), whatsapp (wa.me prellenado), recepcion-reservas (#reservar), habitacion-concierge (#concierge, ancla añadida).
+- Escaneabilidad verificada con OpenCV (los 5 decodifican su URL completa).
+- Hoja de impresión en public/qr/imprimir.html; generador versionado en tools/gen_qrs.py; estrategia completa en docs/QR-ESTRATEGIA.md (mapa por zonas, tamaños, materiales, pendientes).
+- Pendientes Julián: credenciales del wifi (QR nativo), reclamar ficha Google antes del QR de reseñas, dominio propio (regenerar QRs con un comando).
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
