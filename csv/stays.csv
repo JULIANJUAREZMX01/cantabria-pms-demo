@@ -1,5 +1,4 @@
 guest_name,property_name,room,check_in,check_out,rate,extras_total,payment_status,status,notes,id
-Prueba Cutover E2E,Hotel Cantabria Tulancingo,Por asignar,2026-11-05,2026-11-07,300,0,Pendiente,Reservada,Reserva web huésped · Ref CB-7RME5 · lang: es · [evt_3dbfd32c-bd02-4e2e-ae48-73ae83fc111d · guest],6addb8bef93e937c93b0bdb1
 Fulanito de,Hotel Cantabria Tulancingo,Por asignar,2026-10-24,2026-10-30,650,0,Pendiente,Reservada,Reserva web huésped · Ref CB-X87YJ · lang: es · Tel: [privado],6add2569589efa35c3d03810
 Enrique Sefarad ,Hotel Cantabria Tulancingo,101,2026-10-25,2026-10-31,99,0,Pendiente,Activa,El jefe es el jefe,6adc6a224fb9883a3f9f33b1
 Milton James Dickenson ,Hotel Cantabria Tulancingo,Por asignar,2026-10-25,2026-10-31,650,0,Pendiente,Reservada,Reserva web huésped · Tel: [privado],6adc698e2db2377f62234ba1
