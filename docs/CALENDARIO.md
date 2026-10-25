@@ -47,6 +47,14 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Verificación: 42/42 pruebas · astro check 0 errores · build OK · auditoría de las 5 páginas (imágenes, alt, h1, mapa, enlace de equipo): todo OK.
 - **Pendientes de Julián:** (1) reclamar/unificar la ficha de Google Business: hoy hay 2 fichas mal ubicadas ("Cantabria" tipo Love hotel en Echavarri 214 y "Hostales Cantabria" en Rodríguez y Coss 301C); (2) confirmar que las reseñas de "Hostales Cantabria" son de su negocio; (3) mover el "$300" del title SEO a `HOTEL.promo` para que caduque con la promo.
 
+## 2026-10-25 · CUTOVER: Pages sirve el sitio Astro v7 con las 9 imágenes de marca
+
+- Queja de Julián: "no veo ninguna imagen" — la página viva seguía siendo la demo React; las imágenes vivían solo en la rama.
+- Ejecutado el cutover del espejo demo (ADR-012): merge astro/migracion → main (0daa105), Pages cambiado a build_type=workflow, GATEWAY_MODE=legacy con token y PINs actuales en Actions vars (fallback secrets||vars en pages.yml; rotar al ir a Netlify).
+- Verificado en producción: (1) 9 imágenes de marca renderizan (screenshot + HTTP 200); (2) reserva E2E desde la página viva llegó a la Base44 con tarifa 300 cotizada por fecha y Ref CB-7RME5; (3) login de Recepción con PIN 2026 carga datos vivos (Enrique 101, reservas sin habitación, walk-in); (4) la antigua landing React queda en legacy/.
+- URLs: huésped = / · personal = /equipo/ (PINs sin cambio: 2026 staff, 1717 dueño).
+- Dependabot abrió PRs de actualización (pendientes de revisión en un turno regular).
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
