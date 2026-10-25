@@ -62,6 +62,14 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Verificado en producción con capturas: hero enmarcado + reserva destacada renderizan bien; CI verde, 42/42 pruebas, astro check 0 errores.
 - Siguientes candidatos de diseño (a proponer): favicon con monograma vectorizado, patrón de talavera tenue de fondo en secciones alternas, animación de entrada en el sello, versión oscura no (marca es clara).
 
+## 2026-10-25 · Landing v9: GSAP + Lenis (petición de Julián: "web animada y viva")
+
+- Frameworks integrados (npm, self-hosted, sin CDN): gsap 3.15 (core + ScrollTrigger) y lenis 1.3.
+- Sistema de movimiento en src/client/motion.ts: scroll suave Lenis (con manejo de anclas), entrada coreografiada del hero (rótulo, eslogan, titular, promo, botones, idiomas), parallax del rótulo al salir, sello de talavera girando con el scroll, revelados en cascada de secciones/tarjetas/ornamentos/reservas, mapa y pie con cierre suave.
+- Cinta del cartel convertida en doble marquesina viva (tras hero y antes del pie, inclinadas ±1.2°, bucle CSS infinito): "Es mi casa, es tu casa ✦ EST. 1928 ✦ $300 MXN ✦ Tulancingo · Hidalgo ✦ Hotel Cantabria".
+- Accesibilidad: prefers-reduced-motion desactiva TODO el movimiento (Lenis, tweens y marquesina); sin JS la página queda 100% visible (tweens tipo from, sin estados ocultos en CSS).
+- Verificado en producción: bundles con GSAP/Lenis servidos, hero renderizado post-animación, scroll suave y revelados disparados en E2E, CI verde, 42/42 pruebas, astro check 0 errores.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
