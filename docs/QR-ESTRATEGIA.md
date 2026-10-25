@@ -26,6 +26,7 @@
 | 4 | `recepcion-reservas` | Mostrador, a la vista del cliente | Landing `#reservar` | Reserva directa sin comisiones ($300 promo). Conversión en el punto de máxima intención |
 | 5 | `wifi-piso1` | Recepción y pasillo piso 1 | QR nativo WiFi (red `Hostal Cantabria piso 1_2.4G`) | Conexión automática sin teclear. **Generado y verificado** |
 | 5b | `wifi-piso2` | Pasillo piso 2 y habitaciones | QR nativo WiFi (red `Hostal Cantabria piso 2_2.4G`) | Conexión automática sin teclear. **Generado y verificado** |
+| 5c | `wifi-piso2-5g` | Pasillo piso 2, junto al 2.4G | QR nativo WiFi (red `Hostal Cantabria piso 2_5G`) | Banda 5G: más rápida y de menor alcance. **Generado y verificado** |
 
 ## Habitaciones (2 por cuarto)
 
@@ -44,7 +45,7 @@ En v1, el QR 6 cubre la función 7. Un solo QR por habitación hasta que exista 
 
 ## Conteo total
 
-- **Ya generados y verificados (escaneables):** 7 (fachada-info, contacto, whatsapp, recepcion-reservas, habitacion-concierge, wifi-piso1, wifi-piso2 — el concierge se imprime 1 por habitación).
+- **Ya generados y verificados (escaneables):** 8 (fachada-info, contacto, whatsapp, recepcion-reservas, habitacion-concierge, wifi-piso1, wifi-piso2, wifi-piso2-5g — el concierge se imprime 1 por habitación).
 - **Pendientes por insumo de Julián:** reseñas (ficha Google). Nota: la clave WiFi viaja dentro del QR; si se cambia la clave, regenerar wifi-piso1/2.
 - **Futuros:** menú-extras (`/menu` con catálogo), QR por habitación con `?hab=101` para prellenar la habitación en el concierge.
 

@@ -82,6 +82,10 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Julián entregó capturas de las dos redes: piso 1 y piso 2 (2.4G). Generados wifi-piso1.png y wifi-piso2.png (formato nativo WIFI:T:WPA, verificados con OpenCV), añadidos a imprimir.html y QR-ESTRATEGIA.md. Total sistema QR: 7 códigos. Pendiente: QR de reseñas (ficha Google).
 - Seguridad: la clave está embebida en el QR por diseño (comportamiento estándar de WiFi QR); el repo es público, evaluar rotar clave al pasar el repo a privado o publicar solo la hoja de impresión fuera del repo.
 
+## 2026-10-25 · QR WiFi 5G piso 2
+
+- Julián entregó la red 5G del piso 2. Generado wifi-piso2-5g.png (verificado OpenCV), añadido a imprimir.html y QR-ESTRATEGIA.md. Sistema QR: 8 códigos. Pendiente por confirmar: si existe red 5G del piso 1 (no se ha recibido captura).
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
