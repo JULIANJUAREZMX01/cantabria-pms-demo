@@ -24,6 +24,14 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - **Promo $300/noche SÍ aplica a reservas web directas.** Aplicado en: landing viva (main), admin Reservar (main) y `defaultRate` de la política del servidor en `astro/migracion` (commit 41210ae). $650 queda obsoleto.
 - **EST. 1928 confirmado como real por el dueño.** Ya visible en el header de la landing; agregado como `HOTEL.est` en la config de la rama Astro para que Gemini lo renderice en los escudos.
 
+## 2026-10-25 · Parche de verificación de Gemini aplicado y verificado
+
+- Aplicado fix-verificacion.patch (semántica íntegra): legado React a legacy/ con git mv, tarifa noche por noche (src/domain/pricing.ts: $300 antes de 2027-01-01, $650 después, promedio redondeado en Stay.rate), semilla demo con tarifa fija 650, token fuera de tools/cantabria_sync.py, docs/VERIFICACION-2026-10-25.md.
+- Verificación local (Node 22): 42/42 pruebas · astro check 0 errores · build completo (6 páginas).
+- Verificación en la nube (lo que Gemini no pudo hacer): GitHub Actions CI en commit 9c2bde2 → **success** (antes fallaba en e0f37b7).
+- Demo vivo en Pages intacto (landing React de main sigue sirviéndose; Pages solo despliega desde main).
+- Pendientes: deploy real en Netlify (Julián), rotación de credenciales al cutover, decidir dónde renderizar HOTEL.est en el landing Astro, decisión dueño sobre estancias que cruzan 2027-01-01 (hoy: mezcla noche por noche con promedio redondeado).
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
