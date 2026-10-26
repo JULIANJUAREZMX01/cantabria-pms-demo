@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # SHAs fijados, tomados de MueveCancun/.github/workflows (patrón del autor)
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
         with:
           node-version: 24
