@@ -1,12 +1,12 @@
 room_id,property_name,room_type,guest,status,priority,notes,id
 Por asignar,Hotel Cantabria Tulancingo,Habitación,Beta pruebas ,lista,Media,Check-in registrado,6adc6826564a0a1b6f3d40df
 213,Hotel Cantabria Tulancingo,Habitación,Israel,lista,Media,Check-in registrado,6adc677865bf81e8daa394b2
-105,Hotel Cantabria Tulancingo,Habitación,Laura Vega,sucia,Media,Salida Laura Vega 26-oct. Pendiente limpieza ecológica.,6adc588321ae79515c09295a
+105,Hotel Cantabria Tulancingo,Habitación,Laura Vega,proceso,Media,[evt_2cefc846-0c2e-4574-b9f8-3c915946d55e · recepcion/limpieza],6adc588321ae79515c09295a
 204,Hotel Cantabria Tulancingo,Doble Queen,Disponible,proceso,Media,En preparación para próximo huésped.,6adc54a3683d2580b20d344c
-203,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Roberto Ruiz,proceso,Media,Reposición de toallas y kit de baño.,6adc54a3683d2580b20d344b
+203,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Roberto Ruiz,lista,Media,[evt_e35f3f13-7f1a-4d6f-886f-8220339fa01c · recepcion/limpieza],6adc54a3683d2580b20d344b
 202,Hotel Cantabria Tulancingo,Suite Cantabria,Disponible,lista,Baja,Supervisada. Aroma lavanda colocado. Verificada.,6adc54a3683d2580b20d344a
 201,Hotel Cantabria Tulancingo,Doble Queen,Ana Torres,proceso,Alta,[evt_f9c53e88-5223-491c-aff9-7cf5006d884f · recepcion/limpieza],6adc54a3683d2580b20d3449
 104,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Carlos Gómez,lista,Baja,Huésped en habitación. No molestar.,6adc54a3683d2580b20d3448
 103,Hotel Cantabria Tulancingo,Suite Cantabria,Disponible,lista,Baja,Inspeccionada. Kit Eco de bienvenida listo.,6adc54a3683d2580b20d3447
-102,Hotel Cantabria Tulancingo,Doble Queen,María Rodríguez,sucia,Media,En atención por Sra. Carmen. Limpieza ecológica.,6adc54a3683d2580b20d3446
+102,Hotel Cantabria Tulancingo,Doble Queen,María Rodríguez,proceso,Media,[evt_b61771f1-9f01-4251-bc8d-0c30e4a38589 · recepcion/limpieza],6adc54a3683d2580b20d3446
 101,Hotel Cantabria Tulancingo,Sencilla Matrimonial,Enrique Sefarad ,lista,Alta,Check-in registrado,6adc54a3683d2580b20d3445
