@@ -1,0 +1,7 @@
+🏨 Auditoría Cantabria 2026-10-26
+🔴 1 · 🟡 10 · ⚪ 1
+• 🔴 data.js es público y contiene 13 nombre(s) de huésped, 0 teléfono(s) y 27 registro(s) con correo de servicio.
+• 🟡 La base dice "Cda. de Echavarri 214, Centro 1er Cuadro" y el cartel dice "Zaragoza Ote. No. 104, Col. Centro, C.P. 43600".
+• 🟡 Estado de estancia desconocido "Cerrada"; se trata como reservada
+• 🟡 Estado de pago desconocido "Pagado"; se trata como pendiente
+• 🟡 La tabla de habitaciones contiene una fila "Por asignar" que no es una habitación física

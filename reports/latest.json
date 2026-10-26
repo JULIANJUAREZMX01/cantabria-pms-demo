@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-10-26T19:40:59.508Z",
+  "date": "2026-10-26",
+  "property": "Hotel Cantabria Tulancingo",
+  "counts": {
+    "error": 1,
+    "warn": 10,
+    "info": 1
+  },
+  "checksRun": 11,
+  "findings": [
+    {
+      "check": "privacy/pii-in-public-data",
+      "severity": "error",
+      "message": "data.js es público y contiene 13 nombre(s) de huésped, 0 teléfono(s) y 27 registro(s) con correo de servicio.",
+      "fix": "Dejar de publicar PII en el sitio estático: lectura autenticada para el equipo y solo disponibilidad agregada en público (ADR-009)."
+    },
+    {
+      "check": "data/address-mismatch",
+      "severity": "warn",
+      "message": "La base dice \"Cda. de Echavarri 214, Centro 1er Cuadro\" y el cartel dice \"Zaragoza Ote. No. 104, Col. Centro, C.P. 43600\".",
+      "fix": "Confirmar la dirección correcta y unificar base, landing y ficha de Google Maps."
+    },
+    {
+      "check": "data/enums",
+      "severity": "warn",
+      "message": "Estado de estancia desconocido \"Cerrada\"; se trata como reservada",
+      "fix": "Corregir el valor en la base."
+    },
+    {
+      "check": "data/enums",
+      "severity": "warn",
+      "message": "Estado de pago desconocido \"Pagado\"; se trata como pendiente",
+      "fix": "Corregir el valor en la base."
+    },
+    {
+      "check": "data/placeholder-room",
+      "severity": "warn",
+      "message": "La tabla de habitaciones contiene una fila \"Por asignar\" que no es una habitación física",
+      "fix": "Quitar la fila de la tabla de habitaciones; \"Por asignar\" es un estado de la reserva."
+    },
+    {
+      "check": "data/room-count-mismatch",
+      "severity": "warn",
+      "message": "La propiedad declara 18 habitaciones pero hay 10 registradas. La ocupación se calcula sobre 18.",
+      "fix": "Dar de alta las habitaciones faltantes o corregir room_count."
+    },
+    {
+      "check": "data/test-data-unflagged",
+      "severity": "warn",
+      "message": "\"Beta pruebas\" parece de prueba pero is_sample=false; infla KPIs.",
+      "fix": "Marcar is_sample=true o borrar antes de enseñar al dueño."
+    },
+    {
+      "check": "data/test-data-unflagged",
+      "severity": "warn",
+      "message": "\"Fulanito de\" parece de prueba pero is_sample=false; infla KPIs.",
+      "fix": "Marcar is_sample=true o borrar antes de enseñar al dueño."
+    },
+    {
+      "check": "data/test-data-unflagged",
+      "severity": "warn",
+      "message": "\"Amiguito fulanito de tal de prueba\" parece de prueba pero is_sample=false; infla KPIs.",
+      "fix": "Marcar is_sample=true o borrar antes de enseñar al dueño."
+    },
+    {
+      "check": "data/test-data-unflagged",
+      "severity": "warn",
+      "message": "\"Huésped Demo\" parece de prueba pero is_sample=false; infla KPIs.",
+      "fix": "Marcar is_sample=true o borrar antes de enseñar al dueño."
+    },
+    {
+      "check": "ops/stale-requests",
+      "severity": "warn",
+      "message": "Solicitud abierta desde 2026-10-24 en hab 103: Huésped solicita 2 toallas extra y una almohada adicional pa",
+      "fix": "Resolverla o cerrarla."
+    },
+    {
+      "check": "data/enums",
+      "severity": "info",
+      "message": "4 registro(s) usan valores heredados (p. ej. checked_in, paid). Se normalizan al leer.",
+      "fix": "Unificar los valores en el backend para quitar la traducción."
+    }
+  ]
+}
