@@ -92,6 +92,15 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Hook GA listo: GA_ID vacío en el script; al recibir el Measurement ID de Julián se activa gtag.js + evento reservation_confirmed. Sin ID, el objetivo puede crearse en GA4 como page_location contiene /confirmacion.
 - Build 7 páginas, 42/42 pruebas, astro check 0 errores.
 
+## 2026-10-26 · Turno semanal (cierre)
+
+- SALUD: landing 200 ✓, /equipo/ 200 ✓, alias /admin.html verificado en producción (301 → /admin.html/ → refresh → /equipo/, ADR-015).
+- DATOS: synced_at estaba rancio (25-oct 11:23Z); cantabriaPublish ejecutado dos veces, data.js + 5 CSVs al día (26-oct 16:28Z).
+- Operación real: check-out de Laura Vega (hab 105, stay de prueba del flujo completo, vencida 26-oct) → Stay Cerrada ✓.
+- Hueco de flujo detectado: checkOut cierra la Stay pero NO libera la RoomStatus (105 seguía 'lista'). Se corrigió manualmente con setRoomStatus (105 → sucia, prioridad Alta). PROPOSICIÓN (cambio mayor, requiere aprobación de Julián): extender cantabriaWrite action 'checkOut' para marcar la habitación 'sucia' automáticamente.
+- Nota técnica API: setRoomStatus espera 'room_id' (con 'room' crea registro huérfano con room_id null; se detectó y eliminó el duplicado en la misma corrida).
+- Inconsistencias catalogadas (demo/lab, sin tocar): stay Milton Dickenson duplicada (una sin ref), Huésped Demo en 'hab 5' inexistente en inventario, ServiceRequest abierta de Huésped Demo apuntando a hab 103, extras de seed (Juan Pérez/María Rodríguez/Ana Torres) sin stays, 'Por asignar' como room_id en RoomStatus.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
