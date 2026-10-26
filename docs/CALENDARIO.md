@@ -95,8 +95,8 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
-| Lun 26 oct 2026 | Primer turno: chequeo completo + clasificar repos restantes (ver ROADMAP) |
-| Lun 26 oct 2026 | Revisar y aprobar ADR 007-012; rotar token y PIN; deploy de prueba en Netlify; decidir repo privado |
+| Lun 2 nov 2026 | Derivar propuesta formal desde cocobongo-proposal; revisar candidatos Astro y repos con metadatos incompletos (ver ROADMAP) |
+| Lun 2 nov 2026 | Revisar y aprobar ADR 007-012; rotar token y PIN; deploy de prueba en Netlify; decidir repo privado |
 | Lun 2 nov 2026 | Derivar propuesta formal de la cadena desde cocobongo-proposal |
 | Lun 9 nov 2026 | Ampliar intents del concierge (LLM routing opcional) + métricas de uso del concierge |
 | Lun 16 nov 2026 | Evaluación técnica del puente WhatsApp de KynicOS para el funnel automático (fase 2 de ADR-004) |
@@ -104,6 +104,7 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 ## Registro de trabajo
 | Fecha | Trabajo realizado | Evidencia |
 |---|---|---|
+| 26 oct 2026 | Turno semanal: landing 200; `/admin.html` 404 y `/equipo/` 200. `data.js`/CSV responden, pero `synced_at` marca 25 oct 11:23Z (aprox. 22 h anterior al chequeo). Añadido alias reversible `/admin.html` → `/equipo/` (ADR-015). Entidades revisadas: sin checkout vencido antes de hoy; detectadas diferencias huésped/habitación y solicitudes demo que requieren revisión humana. Continuado triage de repos por metadatos, sin importar código. | ADR-015 · ROADMAP · commit de este turno |
 | 23-24 oct 2026 | PMS v6: landing huésped (5 idiomas) + admin con modo Dueño (PIN protegido); funnel v6.1: ticket CB-XXXXX + WhatsApp jefe + paquete copiable; workflows v1.2; ADRs 001-005; ROADMAP repos; este calendario | Commits del repo · docs/adr/ |
 | 24 oct 2026 | Análisis v2 de repos: KynicOS (puente WhatsApp + personas), cocobongo-proposal (plantilla de propuesta), python-orchestrator-node (patrón auditoría), nanobot-cloud (runbook) | docs/adr/ROADMAP-repositorios-reutilizables.md |
 | 24 oct 2026 | **Integración v6.2**: concierge IA KynicOS en la landing (SkillRouter portado a Base44, 5 idiomas, escrituras reales); cantabriaPublish con asServiceRole (república manual); ADR-006 | docs/adr/ADR-006-concierge-ia-landing.md |

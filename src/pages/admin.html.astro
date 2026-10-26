@@ -1,0 +1,18 @@
+---
+const staffUrl = `${import.meta.env.BASE_URL}equipo/`;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0;url=${staffUrl}`} />
+    <title>Acceso de personal · Hotel Cantabria</title>
+    <script is:inline define:vars={{ staffUrl }}>
+      window.location.replace(staffUrl);
+    </script>
+  </head>
+  <body>
+    <p>El acceso de personal cambió. <a href={staffUrl}>Ir a recepción</a>.</p>
+  </body>
+</html>

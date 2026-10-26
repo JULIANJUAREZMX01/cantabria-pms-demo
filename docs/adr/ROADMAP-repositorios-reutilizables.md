@@ -33,3 +33,19 @@ Wrapper de despliegue en Render (Telegram + Dashboard + MCP + backups S3) con gu
 | `astro-platform-starter`, `Shop-Temu-Latam`, `AMMGG`, `AMERICANGLOBALGORUP`, `vuelos`, `GREEN16`, `APP` | Por clasificar en el turno semanal |
 
 **Próximo análisis (turno del lunes):** derivar propuesta formal desde cocobongo-proposal y prototipo de persona "Concierge Cantabria" desde `persona.py`.
+
+
+## Continuación del análisis · 2026-10-26
+
+Revisión de metadatos de GitHub para los repositorios previamente clasificados como “sin clonar aún” y el grupo “por clasificar”. Es una clasificación inicial, no una auditoría de código:
+
+| Repo | Señal verificada | Próxima acción |
+|---|---|---|
+| `MueveCancun`, `muevecancun-pwa` | Astro y JavaScript/Base44 App | Revisar módulos offline reutilizables en una sesión posterior. |
+| `-DoctorCanc-nAgentNanoBot`, `KYNYKOS_AI_Agent` | Python; agente de negocio / agente temprano | Comparar flujos WhatsApp y políticas antes de proponer portado. |
+| `EstanciaInfantilMisPekesCanc-n`, `vuelos`, `AMMGG` | HTML; sitio de negocio / landing | Reutilización visual solamente, sin dependencia técnica evidente. |
+| `astro-platform-starter`, `Shop-Temu-Latam` | Astro | Revisar scaffold y configuración, evitando duplicar la arquitectura Astro del PMS. |
+| `Wasm-Kalpixk_IA_DevOps` | Python; descripción indica motor WASM/ROCm | Mantener como candidato futuro de analítica, no integrarlo en el PMS hoy. |
+| `AMERICANGLOBALGORUP`, `APP`, `GREEN16` | Metadatos incompletos (sin lenguaje o descripción suficiente) | Requieren lectura del código para clasificarlos. |
+
+No se clonaron ni se importó código en este turno. Se prioriza después la derivación de la propuesta formal desde `cocobongo-proposal`, como ya estaba previsto.
