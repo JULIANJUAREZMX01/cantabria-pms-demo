@@ -106,6 +106,11 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Documento docs/ARQUITECTURA-DACC.md: nombre (Desarrollo Agéntico de Ciclo Cerrado), definición formal, escala de madurez E1-E5 (Cantabria en E4), arquitectura de 4 estratos (presentación estática, datos espejo git, operaciones BaaS, operador agéntico), comparación contra baseline WordPress México (41-43% del mercado, hosting+plugins+agencia) con 12 criterios ponderados, límites honestos y ruta E4→E5.
 - Calificación global: 8.7/10 (A-) contra 6.0/10 del baseline tradicional; mejores ejes: desempeño, costo, integración operativa, trazabilidad; brechas: cobro en línea, CMS visual del dueño, dominio/ficha Google, dependencia de plataforma.
 
+## 2026-28-oct · Documentación cronológica + publicación LinkedIn
+
+- docs/HISTORIA-DESARROLLO-CANTABRIA.md: cronología completa 23→28 oct (origen, fundación v4.4→v6, cutover v7/v8/v9, QRs, /confirmacion, turno semanal, ADR-015, DACC) con métricas finales (329 commits, 15 ADRs, 6+ workflows, 8 QRs, CI verde) y playbook de replicación semi-automática de 7 pasos (72 h por propiedad).
+- docs/LINKEDIN-POST-CANTABRIA.md: versión principal (formato feed, ~2.8k chars) + versión corta, en voz de Julián (primera persona, números como argumento, cierre de oficio, límites honestos 8.7 vs 6.0). LinkedIn bloquea lectura de perfil sin sesión (authwall): calibración de voz pendiente si Julián inicia sesión en el navegador compartido.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
