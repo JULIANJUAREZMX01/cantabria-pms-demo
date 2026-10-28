@@ -101,6 +101,11 @@ Cada turno semanal DEBE actualizar este archivo (agregar fila al registro y move
 - Nota técnica API: setRoomStatus espera 'room_id' (con 'room' crea registro huérfano con room_id null; se detectó y eliminó el duplicado en la misma corrida).
 - Inconsistencias catalogadas (demo/lab, sin tocar): stay Milton Dickenson duplicada (una sin ref), Huésped Demo en 'hab 5' inexistente en inventario, ServiceRequest abierta de Huésped Demo apuntando a hab 103, extras de seed (Juan Pérez/María Rodríguez/Ana Torres) sin stays, 'Por asignar' como room_id en RoomStatus.
 
+## 2026-26-oct · Nomenclatura oficial: DACC + AEI (metodología y arquitectura)
+
+- Documento docs/ARQUITECTURA-DACC.md: nombre (Desarrollo Agéntico de Ciclo Cerrado), definición formal, escala de madurez E1-E5 (Cantabria en E4), arquitectura de 4 estratos (presentación estática, datos espejo git, operaciones BaaS, operador agéntico), comparación contra baseline WordPress México (41-43% del mercado, hosting+plugins+agencia) con 12 criterios ponderados, límites honestos y ruta E4→E5.
+- Calificación global: 8.7/10 (A-) contra 6.0/10 del baseline tradicional; mejores ejes: desempeño, costo, integración operativa, trazabilidad; brechas: cobro en línea, CMS visual del dueño, dominio/ficha Google, dependencia de plataforma.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|
