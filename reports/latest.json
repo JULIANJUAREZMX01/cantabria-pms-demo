@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-26T19:40:59.508Z",
-  "date": "2026-10-26",
+  "generatedAt": "2026-11-02T22:33:00.255Z",
+  "date": "2026-11-02",
   "property": "Hotel Cantabria Tulancingo",
   "counts": {
     "error": 1,
-    "warn": 10,
+    "warn": 13,
     "info": 1
   },
   "checksRun": 11,
@@ -12,8 +12,26 @@
     {
       "check": "privacy/pii-in-public-data",
       "severity": "error",
-      "message": "data.js es público y contiene 13 nombre(s) de huésped, 0 teléfono(s) y 27 registro(s) con correo de servicio.",
+      "message": "data.js es público y contiene 14 nombre(s) de huésped, 0 teléfono(s) y 29 registro(s) con correo de servicio.",
       "fix": "Dejar de publicar PII en el sitio estático: lectura autenticada para el equipo y solo disponibilidad agregada en público (ADR-009)."
+    },
+    {
+      "check": "consistency/overdue-checkout",
+      "severity": "warn",
+      "message": "Israel (hab 213) debió salir el 2026-10-27.",
+      "fix": "Hacer check-out o corregir la fecha de salida."
+    },
+    {
+      "check": "consistency/overdue-checkout",
+      "severity": "warn",
+      "message": "Enrique Sefarad (hab 101) debió salir el 2026-10-31.",
+      "fix": "Hacer check-out o corregir la fecha de salida."
+    },
+    {
+      "check": "consistency/overdue-checkout",
+      "severity": "warn",
+      "message": "Huésped Demo (hab 5) debió salir el 2026-10-26.",
+      "fix": "Hacer check-out o corregir la fecha de salida."
     },
     {
       "check": "data/address-mismatch",
