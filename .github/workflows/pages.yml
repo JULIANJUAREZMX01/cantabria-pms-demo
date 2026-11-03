@@ -28,6 +28,19 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Gate de superficie pública
+        run: |
+          set -euo pipefail
+          if [ "${GATEWAY_MODE}" = "legacy" ] && [ -n "${CANTABRIA_WRITE_TOKEN}" ]; then
+            echo "::error::GATEWAY_MODE=legacy incrustaría el token de escritura y los PIN en el bundle público."
+            echo "::error::Usa GATEWAY_MODE=proxy (función de borde) o vacía CANTABRIA_WRITE_TOKEN / *_PIN antes de desplegar."
+            echo "::error::Referencia: docs/adr y sección 6 del Estándar de arquitectura JAJA."
+            exit 1
+          fi
+          echo "Superficie pública OK: modo=${GATEWAY_MODE:-demo}, sin secretos en el cliente."
+        env:
+          GATEWAY_MODE: ${{ vars.GATEWAY_MODE || 'demo' }}
+          CANTABRIA_WRITE_TOKEN: ${{ secrets.CANTABRIA_WRITE_TOKEN || vars.CANTABRIA_WRITE_TOKEN }}
       - run: npm run build
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
