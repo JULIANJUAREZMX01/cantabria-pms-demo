@@ -1,4 +1,4 @@
-🏨 Auditoría Cantabria 2026-11-02
+🏨 Auditoría Cantabria 2026-11-09
 🔴 1 · 🟡 13 · ⚪ 1
 • 🔴 data.js es público y contiene 14 nombre(s) de huésped, 0 teléfono(s) y 29 registro(s) con correo de servicio.
 • 🟡 Israel (hab 213) debió salir el 2026-10-27.
