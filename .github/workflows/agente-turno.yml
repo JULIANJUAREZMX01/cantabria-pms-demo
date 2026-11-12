@@ -47,7 +47,7 @@ jobs:
     if: needs.guardia.outputs.puede_abrir == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Crear issue con instrucciones
         env:
           GH_TOKEN: ${{ github.token }}
